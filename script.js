@@ -156,3 +156,23 @@ document.addEventListener("DOMContentLoaded", () => {
   highlightNavigation()
   console.log("[v0] Portfolio website initialized")
 })
+
+// EmailJS Integration for Contact Form
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const status = document.getElementById('formStatus');
+
+  emailjs.sendForm(
+    'service_qzmfpoc',    
+    'template_nyys3c5',   
+    this
+  ).then(() => {
+    status.textContent = "Message sent successfully!";
+    status.style.color = "green";
+    this.reset();
+  }, (error) => {
+    console.error('FAILED...', error);
+    status.textContent = "Failed to send message. Please try again.";
+    status.style.color = "red";
+  });
+});
