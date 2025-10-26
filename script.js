@@ -120,7 +120,7 @@ contactForm.addEventListener("submit", (e) => {
   console.log("[v0] Contact form submitted:", { name, email, message })
 
   // Show success message
-  alert("Thank you for your message! This is a demo form. Please use the email link to contact me directly.")
+  alert("Thank you for your message!")
 
   // Reset form
   contactForm.reset()
@@ -154,7 +154,7 @@ window.addEventListener("scroll", animateSkillBars)
 // Initialize on page load
 document.addEventListener("DOMContentLoaded", () => {
   highlightNavigation()
-  console.log("[v0] Portfolio website initialized")
+  console.log("Portfolio website initialized")
 })
 
 // EmailJS Integration for Contact Form
