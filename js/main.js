@@ -108,4 +108,8 @@ function initFilters() {
 const yearEl = document.getElementById('current-year');
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> bb6e96b6497fe772a5c6e82aa260414c4ae77005
