@@ -384,7 +384,8 @@
   /* Product / Project Card */
   .product-card,
   .project-card {
-    display: block;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     border-radius: var(--radius);
     background: var(--card);
@@ -421,6 +422,9 @@
   
   .product-card__body {
     padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
   
   .product-card__name,
@@ -455,7 +459,8 @@
   }
   
   .project-links {
-    margin-top: 1rem;
+     margin-top: auto;
+    padding-top: 1rem;
   }
   
   .project-link {
