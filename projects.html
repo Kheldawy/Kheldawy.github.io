@@ -6,48 +6,63 @@
   <meta name="theme-color" content="#faf8f5" />
   <title>KHALED IBRAHIM | Projects</title>
   <meta name="description" content="Selected full-stack development projects – Java Spring Boot, JavaScript, SQLite, REST APIs and more." />
+  <script>
+    (function () {
+      const t = localStorage.getItem('portfolio-theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
-   <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
-  <!-- ============ HEADER ============ -->
   <header class="header">
     <nav class="container header__inner">
       <a href="index.html" class="header__logo font-serif">KHALED IBRAHIM</a>
 
-    <!-- Desktop nav -->
-<ul class="nav-desktop">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="projects.html">Projects</a></li>
-  <li><a href="about.html">About</a></li>
-  <li><a href="skills.html">Skills</a></li>
-</ul>
+      <ul class="nav-desktop">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+      </ul>
+
+      <div class="header__controls" aria-label="Site preferences">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <span class="theme-toggle__icon" aria-hidden="true">☾</span>
+          <span class="theme-toggle__label">Dark mode</span>
+        </button>
+        <label class="language-select">
+          <span class="sr-only">Language</span>
+          <select id="language-select" aria-label="Select language">
+            <option value="en">EN</option>
+            <option value="sv">SV</option>
+          </select>
+        </label>
+      </div>
 
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
+
     <div class="mobile-menu" id="mobile-menu">
-    <!-- Mobile menu -->
-<ul class="mobile-menu__list">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="projects.html">Projects</a></li>
-  <li><a href="about.html">About</a></li>
-  <li><a href="skills.html">Skills</a></li>
-</ul>
-
-
+      <ul class="mobile-menu__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+      </ul>
     </div>
   </header>
 
-  <!-- ============ MAIN ============ -->
   <main>
 
-    <!-- Page Header -->
     <section class="page-header">
       <div class="container">
         <h1 class="page-header__title font-serif">Projects</h1>
@@ -73,7 +88,6 @@
 
         <div class="featured__grid projects-grid">
 
-          <!-- Project 1 -->
           <article class="product-card project-card" data-category="fullstack">
             <div class="product-card__image">
               <img src="images/The-Glow-Salon.png" alt="Hair Salon Booking System">
@@ -97,7 +111,6 @@
             </div>
           </article>
 
-          <!-- Project 2 -->
           <article class="product-card project-card" data-category="frontend">
             <div class="product-card__image">
               <img src="images/The-Cocktail-.png" alt="The Cocktail DB">
@@ -120,7 +133,6 @@
             </div>
           </article>
 
-          <!-- Project 3 -->
           <article class="product-card project-card" data-category="backend">
             <div class="product-card__image">
               <img src="images/librarysystem.png" alt="Library System">
@@ -144,7 +156,6 @@
             </div>
           </article>
 
-          <!-- Project 4 -->
           <article class="product-card project-card" data-category="backend">
             <div class="product-card__image">
               <img src="images/Webshop-projekt.png" alt="Webshop-projekt">
@@ -167,7 +178,6 @@
             </div>
           </article>
 
-          <!-- Project 5 -->
           <article class="product-card project-card" data-category="backend">
             <div class="product-card__image">
               <img src="images/Spring-Boot-Security.png" alt="Spring Boot Security">
@@ -190,7 +200,6 @@
             </div>
           </article>
 
-                  <!-- Project 6 -->
           <article class="product-card project-card" data-category="fullstack">
             <div class="product-card__image">
               <img src="images/FBK_balkan.png" alt="FBK Balkan">
@@ -213,14 +222,13 @@
               </div>
             </div>
           </article>
-          
+
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
@@ -228,42 +236,17 @@
         <p class="footer__tagline">Full Stack Developer & Creative</p>
       </div>
 
-    <!-- Footer nav -->
-<nav class="footer__nav" aria-label="Footer navigation">
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="about.html">About</a>
-  <a href="skills.html">Skills</a>
-</nav>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+      </nav>
+
       <p class="footer__copy">© <span id="current-year"></span> KHALED IBRAHIM. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
-
-  <!-- Project filter script (already in your main.js or can stay here) -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      const projectCards  = document.querySelectorAll('.project-card');
-
-      filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterButtons.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-
-          const filter = btn.dataset.filter;
-
-          projectCards.forEach(card => {
-            if (filter === 'all' || card.dataset.category === filter) {
-              card.style.display = '';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-        });
-      });
-    });
-  </script>
-
 </body>
+</html>

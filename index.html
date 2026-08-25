@@ -6,45 +6,63 @@
   <meta name="theme-color" content="#faf8f5" />
   <title>KHALED IBRAHIM | Creative Portfolio</title>
   <meta name="description" content="Full Stack Developer – Building robust, scalable applications from database to browser." />
+  <script>
+    (function () {
+      const t = localStorage.getItem('portfolio-theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
-   <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
-  <!-- ============ HEADER ============ -->
   <header class="header">
     <nav class="container header__inner">
       <a href="index.html" class="header__logo font-serif">KHALED IBRAHIM</a>
-    <!-- Desktop nav -->
-<ul class="nav-desktop">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="projects.html">Projects</a></li>
-  <li><a href="about.html">About</a></li>
-  <li><a href="skills.html">Skills</a></li>
-</ul>
+
+      <ul class="nav-desktop">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+      </ul>
+
+      <div class="header__controls" aria-label="Site preferences">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <span class="theme-toggle__icon" aria-hidden="true">☾</span>
+          <span class="theme-toggle__label">Dark mode</span>
+        </button>
+        <label class="language-select">
+          <span class="sr-only">Language</span>
+          <select id="language-select" aria-label="Select language">
+            <option value="en">EN</option>
+            <option value="sv">SV</option>
+          </select>
+        </label>
+      </div>
 
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
+
     <div class="mobile-menu" id="mobile-menu">
- <!-- Mobile menu -->
-<ul class="mobile-menu__list">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="projects.html">Projects</a></li>
-  <li><a href="about.html">About</a></li>
-  <li><a href="skills.html">Skills</a></li>
-</ul>
+      <ul class="mobile-menu__list">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+      </ul>
     </div>
   </header>
 
-  <!-- ============ MAIN ============ -->
   <main>
 
-    <!-- Hero Section -->
     <section class="hero">
       <div class="container hero__inner">
         <div class="hero__text">
@@ -54,26 +72,23 @@
             Building robust, scalable applications from database to browser.
           </p>
           <div class="hero__actions">
-           
             <a href="projects.html" class="btn btn--primary">View Projects</a>
             <a href="about.html" class="btn btn--outline">About Me</a>
           </div>
         </div>
         <div class="hero__portrait">
-          <img src="images/hero-portrait.jpg" alt="KHALED IBRAHIM , Full Stack Developer" />
+          <img src="images/hero-portrait.jpg" alt="KHALED IBRAHIM, Full Stack Developer" />
           <div class="hero__portrait-accent" aria-hidden="true"></div>
         </div>
       </div>
     </section>
 
-    <!-- Projects Section (transferred & adapted from index01) -->
     <section class="featured">
       <div class="container">
         <div class="featured__header">
           <h2 class="featured__title font-serif">Featured Projects</h2>
-  
-            <a href="projects.html" class="featured__link">
-              View all
+          <a href="projects.html" class="featured__link">
+            View all
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M5 12h14"/>
               <path d="m12 5 7 7-7 7"/>
@@ -82,104 +97,91 @@
         </div>
 
         <div class="featured__grid projects-grid">
-          
-            <!-- Project 1 -->
-             <article class="product-card project-card clickable-card" 
-               data-category="fullstack" 
-               data-link="projects.html"
-                role="button"
-                 tabindex="0">
-                  <div class="product-card__image">
-                  <img src="images/The-Glow-Salon.png" alt="Hair Salon Booking System">
-                  </div>
-                  <div class="product-card__body">
-                  <h3 class="product-card__name">The Glow Salon</h3>
-                <p class="product-card__desc">
-               Hair Salon Booking System: An online platform for clients to book appointments and for salons to manage schedules and services.
-                </p>
-          <div class="project-tech">
-                  <span class="tech-tag">Java Spring Boot</span>
-            <span class="tech-tag">Spring Security</span>
-            <span class="tech-tag">SQLite</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Kheldawy" 
-              class="project-link" 
-              target="_blank"
-              rel="noopener noreferrer">
-            GitHub →
-            </a>
-          </div>
-        </div>
-      </article>
 
-<!-- Project 2 -->
-        <article class="product-card project-card clickable-card" 
-           data-category="fullstack"
-              data-link="projects.html"
-              role="button"
-              tabindex="0">
-          <div class="product-card__image">
-            <img src="images/FBK_balkan.png" alt="FBK Balkan">
-          </div>
-          <div class="product-card__body">
-            <h3 class="product-card__name">FBK Balkan</h3>
-            <p class="product-card__desc">
-            Full-stack football club platform for FBK Balkan, featuring player management, match scheduling, and club information.
-            </p>
-            <div class="project-tech">
-            <span class="tech-tag">Java Spring Boot</span>
-            <span class="tech-tag">Spring Security</span>
-            <span class="tech-tag">SQLite</span>
-            <span class="tech-tag">JavaScript</span>
-          </div>
-            <div class="project-links">
-            <a href="https://github.com/RahimOnGit/FBK_Balkan.git"
-              class="project-link"
-              target="_blank"
-              rel="noopener noreferrer">
-            GitHub →
-            </a>
-          </div>
-          </div>
-        </article>
+          <article class="product-card project-card clickable-card"
+                   data-category="fullstack"
+                   data-link="projects.html"
+                   role="button"
+                   tabindex="0">
+            <div class="product-card__image">
+              <img src="images/The-Glow-Salon.png" alt="Hair Salon Booking System">
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">The Glow Salon</h3>
+              <p class="product-card__desc">
+                Hair Salon Booking System: An online platform for clients to book appointments and for salons to manage schedules and services.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Java Spring Boot</span>
+                <span class="tech-tag">Spring Security</span>
+                <span class="tech-tag">SQLite</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Kheldawy" class="project-link" target="_blank" rel="noopener noreferrer">
+                  GitHub →
+                </a>
+              </div>
+            </div>
+          </article>
 
-<!-- Project 3 -->
-          <article class="product-card project-card clickable-card" 
-            data-category="backend"
-            data-link="projects.html"
-            role="button"
-            tabindex="0">
-          <div class="product-card__image">
-             <img src="images/librarysystem.png" alt="Library System">
-          </div>
-               <div class="product-card__body">
-          <h3 class="product-card__name">Library System</h3>
-             <p class="product-card__desc">
-          School project built with Spring Boot and JPA.
-          </p>
-            <div class="project-tech">
-          <span class="tech-tag">Java</span>
-          <span class="tech-tag">Spring Boot</span>
-          <span class="tech-tag">SQLite</span>
-          <span class="tech-tag">JPA</span>
-          </div>
-        <div class="project-links">
-          <a href="https://github.com/Kheldawy/library-system"
-            class="project-link"
-            target="_blank"
-            rel="noopener noreferrer">
-          GitHub →
-          </a>
-        </div>
-      </div>
-</article>
+          <article class="product-card project-card clickable-card"
+                   data-category="fullstack"
+                   data-link="projects.html"
+                   role="button"
+                   tabindex="0">
+            <div class="product-card__image">
+              <img src="images/FBK_balkan.png" alt="FBK Balkan">
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">FBK Balkan</h3>
+              <p class="product-card__desc">
+                Full-stack football club platform for FBK Balkan, featuring player management, match scheduling, and club information.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Java Spring Boot</span>
+                <span class="tech-tag">Spring Security</span>
+                <span class="tech-tag">SQLite</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/RahimOnGit/FBK_Balkan.git" class="project-link" target="_blank" rel="noopener noreferrer">
+                  GitHub →
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card project-card clickable-card"
+                   data-category="backend"
+                   data-link="projects.html"
+                   role="button"
+                   tabindex="0">
+            <div class="product-card__image">
+              <img src="images/librarysystem.png" alt="Library System">
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Library System</h3>
+              <p class="product-card__desc">
+                School project built with Spring Boot and JPA.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">SQLite</span>
+                <span class="tech-tag">JPA</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Kheldawy/library-system" class="project-link" target="_blank" rel="noopener noreferrer">
+                  GitHub →
+                </a>
+              </div>
+            </div>
+          </article>
 
         </div>
       </div>
     </section>
 
-    <!-- Support Section (you can remove or keep) -->
     <section class="support">
       <div class="container">
         <div class="support__card">
@@ -197,7 +199,6 @@
 
   </main>
 
-  <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
@@ -205,17 +206,17 @@
         <p class="footer__tagline">Full Stack Developer & Creative</p>
       </div>
 
-      <!-- Footer nav -->
-<nav class="footer__nav" aria-label="Footer navigation">
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="about.html">About</a>
-  <a href="skills.html">Skills</a>
-</nav>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+      </nav>
+
       <p class="footer__copy">© <span id="current-year"></span> KHALED IBRAHIM. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
-
 </body>
+</html>

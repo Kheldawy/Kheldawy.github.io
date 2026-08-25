@@ -18,6 +18,21 @@
     --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
     --font-serif: 'DM Serif Display', Georgia, serif;
   }
+
+   [data-theme="dark"] {
+     --bg: #171614;
+     --fg: #f5f1eb;
+     --card: #24221f;
+     --card-fg: #f5f1eb;
+     --primary: #f5f1eb;
+     --primary-fg: #171614;
+     --secondary: #302c27;
+     --secondary-fg: #f5f1eb;
+     --muted: #b5aea5;
+     --accent: #e0ad7e;
+     --accent-fg: #171614;
+     --border: #443e36;
+   }
   
   /* ============================
      Reset & Base
@@ -106,7 +121,7 @@
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(250, 248, 245, 0.92);
+     background: color-mix(in srgb, var(--bg) 92%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
@@ -130,11 +145,60 @@
   .header__logo:hover {
     opacity: 0.7;
   }
+
+   .header__controls {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     margin-left: auto;
+     margin-right: 0.75rem;
+   }
+
+   .theme-toggle,
+   .language-select select {
+     min-height: 36px;
+     border: 1px solid var(--border);
+     border-radius: 999px;
+     color: var(--fg);
+     background: var(--card);
+     font-size: 0.75rem;
+     font-weight: 600;
+     letter-spacing: 0.02em;
+   }
+
+   .theme-toggle {
+     display: inline-flex;
+     align-items: center;
+     gap: 0.4rem;
+     padding: 0.45rem 0.75rem;
+   }
+
+   .theme-toggle:hover,
+   .language-select select:hover {
+     border-color: var(--accent);
+   }
+
+   .theme-toggle__icon {
+     font-size: 1rem;
+     line-height: 1;
+   }
+
+   .language-select select {
+     padding: 0 0.6rem;
+     outline: none;
+   }
+
+   .language-select select option {
+     background: var(--card);
+     color: var(--fg);
+   }
   
   .nav-desktop {
     display: none;
     align-items: center;
     gap: 2rem;
+    margin-left: auto;
+    margin-right: 2rem;
   }
   
   .nav-desktop a {
@@ -331,8 +395,12 @@
   /* ============================
      Featured / Projects Section
      ============================ */
-  .featured {
+  /* .featured {
     background: rgba(240, 236, 230, 0.4);
+    padding: 5rem 0;
+  } */
+  .featured {
+    background: color-mix(in srgb, var(--secondary) 40%, transparent);
     padding: 5rem 0;
   }
   
@@ -459,7 +527,7 @@
   }
   
   .project-links {
-     margin-top: auto;
+    margin-top: auto;
     padding-top: 1rem;
   }
   
@@ -694,14 +762,39 @@
     margin-top: 1rem;
   }
   
-  .about__tag {
+  /* .about__tag {
     padding: 0.5rem 1rem;
     border-radius: 999px;
     background: var(--secondary);
     color: var(--secondary-fg);
     font-size: 0.875rem;
-  }
-  
+  } */
+
+ /* About tags with icons */
+.about__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: var(--secondary);
+  color: var(--secondary-fg);
+  font-size: 0.875rem;
+}
+
+.about__tag svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+.about__tag img {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
   /* Social links in about */
   .social-links {
     display: flex;
@@ -733,7 +826,7 @@
      ============================ */
   .footer {
     border-top: 1px solid var(--border);
-    background: rgba(240, 236, 230, 0.5);
+     background: color-mix(in srgb, var(--secondary) 50%, transparent);
   }
   
   .footer__inner {
@@ -798,6 +891,7 @@
     .hero {
       padding: 7rem 0;
     }
+
     .hero__inner {
       flex-direction: row;
       text-align: left;
@@ -823,6 +917,17 @@
       flex-direction: row;
       justify-content: space-between;
       text-align: left;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .theme-toggle__label {
+      display: none;
+    }
+    .theme-toggle {
+      width: 36px;
+      justify-content: center;
+      padding: 0;
     }
   }
   
